@@ -9,11 +9,10 @@ function App() {
 
   const handleSubmit = async () => {
 
-
     setStatus('Processing')
 
     // replace
-    const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZWFsZXJJZCI6IjY2NmFlMjYzMGZmNjhjZTNkOThhMDYyZiIsImlhdCI6MTcyNDIzNTI3NywiZXhwIjoxNzI1OTYzMjc3fQ.umCpeanaYETAiEDrP9oRS5YGsvgvcLJCgIPzqzV885A'
+    const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZWFsZXJJZCI6IjY2NmFlMjYzMGZmNjhjZTNkOThhMDYyZiIsImlhdCI6MTcyOTQ5NDIxMywiZXhwIjoxNzMxMjIyMjEzfQ.mYnUyB5hVUW-fETjD9gyQR_kXvJI1nm3tun2mgHDe4Y'
     const response = await axios.post('https://tenera-server.onrender.com/api/payment/doPayment',{amount:amount},{headers:{Authorization:token}})
     setStatus('Done')
 
@@ -21,7 +20,7 @@ function App() {
 
     let checkoutOptions = {
       paymentSessionId: payment_session_id,
-      returnUrl: 'http://localhost:5173'
+      returnUrl: 'https://cashfree-test.onrender.com'
     };
 
     cashfree.checkout(checkoutOptions).then(function(result) {
@@ -32,6 +31,8 @@ function App() {
         console.log('redirect');
       }
     });
+    
+
   };
 
 
